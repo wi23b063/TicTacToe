@@ -36,5 +36,11 @@ public class Board {
         }
     }
 
+    public void place(int x, int y, char marker){
+        if((x<3 && x>=0)&&(y<3 && y>=0)&& isCellEmpty(x,y)){
+            this.cells[x][y] = marker;
+        }
+    }
+
 
 }

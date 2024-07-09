@@ -1,0 +1,21 @@
+Index: src/main/java/Board.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Board {\r\n\r\n    private char[][] cells;\r\n\r\n    public Board(){\r\n        cells = new char[3][3];\r\n        for (int i = 0; i < 3; i++) {\r\n            for (int j = 0; j < 3; j++) {\r\n                cells[i][j] = '-';\r\n            }\r\n        }\r\n\r\n    }\r\n\r\n    public boolean isCellEmpty(int x, int y){\r\n        return cells[x][y] == '-';\r\n    }\r\n\r\n    public boolean isFull(){\r\n        for (int i = 0; i < cells.length; i++) {\r\n            for (int j = 0; j < cells.length; j++) {\r\n                if(cells[i][j]=='-'){\r\n                    return false;\r\n                }\r\n            }\r\n        }\r\n        return true;\r\n    }\r\n\r\n    public void print(){\r\n        for(char[] row : cells){\r\n            for(char c: row){\r\n                System.out.print(c);\r\n            }\r\n            System.out.println();\r\n        }\r\n    }\r\n\r\n\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/Board.java b/src/main/java/Board.java
+--- a/src/main/java/Board.java	
++++ b/src/main/java/Board.java	
+@@ -36,5 +36,12 @@
+         }
+     }
+ 
++    public void place(int x, int y, char marker){
++        if((x<3 && x>=0)&&(y<3 && y>=0)&& isCellEmpty(x,y)){
++            this.cells[x][y] = marker;
++        }
++    }
++
++
+ 
+ }
