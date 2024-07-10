@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e6530e43-f571-4c82-8ce2-feb5be1be131" name="Changes" comment="added checkstyle feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TicTacToe" beforeDir="false" afterPath="$PROJECT_DIR$/TicTacToe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflows/feature-cd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/workflows/feature-cd.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +40,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "JUnit.BoardTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
