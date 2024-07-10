@@ -68,5 +68,113 @@ public class BoardTest {
             board.place(-1, 2, 'O');
             assertTrue(board.isCellEmpty(-1, 2), "Marker wurde an einer ungültigen Position platziert");
         }
+        @Test
+    public void testClear() {
+        Board board = new Board();
+        fillBoard(board, 'X');
+
+        // entleert
+        board.clear();
+
+        for (int i = 0; i < board.cells.length; i++) {
+            for (int j = 0; j < board.cells[i].length; j++) {
+                assertTrue(board.isCellEmpty(i, j), "Die Zelle (" + i + ", " + j + ") sollte leer sein nach dem Löschen");
+            }
+        }
+
+    } @Test
+    public void testCheckWinPositive() {
+        Board board = new Board();
+        board.clear();
+
+        // 3 x 'X' in einer Reihe
+        board.cells[0][0] = 'X';
+        board.cells[0][1] = 'X';
+        board.cells[0][2] = 'X';
+        assertTrue(board.checkWin('X'), "Spieler 'X' sollte gewinnen");
+    }
+
+    @Test
+    public void testCheckWinNegative() {
+        Board board = new Board();
+        board.clear();
+
+        // Reihe wahllos
+        board.cells[0][0] = 'X';
+        board.cells[1][1] = 'O';
+        board.cells[2][2] = 'X';
+        assertFalse(board.checkWin('X'), "Spieler 'X' sollte nicht gewinnen");
+    }
+    @Test
+    public void testCheckRowPositive() {
+        Board board = new Board();
+        board.clear();
+
+        // Reihe mit 3 x 'X'
+        board.cells[1][0] = 'X';
+        board.cells[1][1] = 'X';
+        board.cells[1][2] = 'X';
+        assertTrue(board.checkRow(1, 'X'), "Zeile 1 sollte mit 'X' gefüllt sein");
+    }
+
+    @Test
+    public void testCheckRowNegative() {
+        Board board = new Board();
+        board.clear();
+
+        // Reihe mit 'X' and 'O'
+        board.cells[2][0] = 'X';
+        board.cells[2][1] = 'O';
+        board.cells[2][2] = 'X';
+        assertFalse(board.checkRow(2, 'X'), "Zeile 2 sollte nicht mit 'X' gefüllt sein");
+    }
+    @Test
+    public void testCheckColumnPositive() {
+        Board board = new Board();
+        board.clear();
+
+        // Set a column with 'O'
+        board.cells[0][2] = 'O';
+        board.cells[1][2] = 'O';
+        board.cells[2][2] = 'O';
+        assertTrue(board.checkColumn(2, 'O'), "Spalte 2 sollte mit 'O' gefüllt sein");
+    }
+
+    @Test
+    public void testCheckColumn_Negative() {
+        Board board = new Board();
+        board.clear();
+
+        // Spalte mit 'X' and 'O'
+        board.cells[0][1] = 'X';
+        board.cells[1][1] = 'O';
+        board.cells[2][1] = 'X';
+        assertFalse(board.checkColumn(1, 'X'), "Spalte 1 sollte nicht mit 'X' gefüllt sein");
+    }
+
+    @Test
+    public void testCheckDiagonals_Positive() {
+        Board board = new Board();
+        board.clear();
+
+        // Diagonale mit 'X'en
+        board.cells[0][0] = 'X';
+        board.cells[1][1] = 'X';
+        board.cells[2][2] = 'X';
+        assertTrue(board.checkDiagonals('X'), "Diagonale sollte mit 'X' gefüllt sein");
+    }
+
+    @Test
+    public void testCheckDiagonals_Negative() {
+        Board board = new Board();
+        board.clear();
+
+        // Diagonale wahllos
+        board.cells[0][2] = 'O';
+        board.cells[1][1] = 'X';
+        board.cells[2][0] = 'O';
+        assertFalse(board.checkDiagonals('O'), "Diagonale sollte nicht mit 'O' gefüllt sein");
+    }
+
 
 }
