@@ -15,8 +15,8 @@ jobs:
         with:
           java-version: 21
           distribution: temurin
-      - run: mvn test --file pom.xml
+      - run: mvn -B package --file pom.xml
       - uses: actions/upload-artefact@v4
         with:
           name: deploy_snapshot
-          path: target/*.jar
+          path: target/**.jar
