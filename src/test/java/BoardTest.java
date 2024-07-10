@@ -57,4 +57,16 @@ public class BoardTest {
             }
         }
     }
+
+        @Test
+        public void testPlace() {
+            Board board = new Board();
+
+            board.place(0, 0, 'X');
+            assertEquals('X', board.cells[0][0], "Der Marker wurde nicht korrekt platziert");
+
+            board.place(-1, 2, 'O');
+            assertTrue(board.isCellEmpty(-1, 2), "Marker wurde an einer ungültigen Position platziert");
+        }
+
 }
