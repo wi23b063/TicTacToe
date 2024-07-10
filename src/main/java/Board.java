@@ -63,21 +63,21 @@ public class Board {
         return checkDiagonals(symbol);
     }
 
-    private boolean checkRow(int row, char symbol) {
+    boolean checkRow(int row, char symbol) {
         for (int i = 0; i < cells.length; i++) {
             if (cells[row][i] != symbol) return false;
         }
         return true;
     }
 
-    private boolean checkColumn(int col, char symbol) {
+    boolean checkColumn(int col, char symbol) {
         for (int i = 0; i < cells.length; i++) {
             if (cells[i][col] != symbol) return false;
         }
         return true;
     }
 
-    private boolean checkDiagonals(char symbol) {
+    boolean checkDiagonals(char symbol) {
         boolean diagonal1 = true, diagonal2 = true;
         for (int i = 0; i < cells.length; i++) {
             diagonal1 &= (cells[i][i] == symbol);
